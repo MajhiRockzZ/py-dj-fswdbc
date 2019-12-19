@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Table Quiz</title>
+  </head>
+  <body>
+    <h1>Table Quiz</h1>
+    <table border="1">
+      <thead>
+        <th>Country Name</th>
+        <th>Conuntry Flag</th>
+        <th>GDP (Millions of USD)</th>
+      </thead>
+      <tr>
+        <td>USA</td>
+        <td>
+          <!-- #region USA Image -->
+          <img
+            src="data:image/png;base64,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"
+            alt="USA Flag"
+          />
+          <!-- #endregion -->
+        </td>
+        <td>18,561,930</td>
+      </tr>
+      <tr>
+        <td>India</td>
+        <td>
+          <!-- #region INDIA Image -->
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANYAAACOCAMAAAB64AaGAAAAkFBMVEX/mTMSiAf/////khT/4s0AfQDK3csAAIEAAH0AAIiiosfu7vby8vjf3+0PD4nY2Oi2ttGsrMnJyd/5+fywsNLl5fC7u9jOzuJ5ebPCwt2YmMUoKI2Hh7pTU6EKCox0dK1NTaBFRZpaWqNUVJZubqtoaKBKSpc/P49AQJkVFYeQkL9iYqN7e65PT5hnZ7A9PYj8blAXAAAC70lEQVR4nO2Z246bMBRF09OLDQYMxuCY3Am5TDLT+f+/q8n0ZTSqqlY6rWztJZEQ52FrCfvgy2IBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACw8DlJFl+SZEFJAq2YgNbfU3T9erMVYrtZ913xLxL/gZZqdpmUQrxd2a7p+DP5tewx2Ii9OHh/CF/B7cWyh3JrdXchnuSNWqeKQrmWbvJJiDv3A2PWcpnInn2uipKonK9C5f45NDreXF4tvxVybFUYX0FD66A537ejFFvPGsyqZSpxXRrSocv5joyhLsh0mszyKirDmcyppTNxmAdR14fCoanvSYdi0T+aDiLTjNGcWi9CDhSqBOWOvKW6JuvJ5RTqBw1SvDBGM2pZWY2GiiFobEiNs9aoaBM0h4LMWEnGOs+n1Z3FOihQ+72gfkdH1TTqSEtPxf3RvBZnvjLPp5WLlVFlqHzdVNJer291fVvrPZVTsAl/mJXI2cLZtNQkhKWyDz3NnbQf+3PTnPvR65Oj1vYl2fBWVlzpbFo6k2EIUWv2htyrP5lLnl/Myb86Ck2hG6pB8hVDNi0rMyoeT2Pam/6YT/kwhI9jbzb3uVUVlPEVDTatZZheaOetUeTGXXCy02SD2W7jSBnrXRkmG0uudDatqxAltZ2z43Hdm2kYVlW1GobJ9Lf7aF3XUinElSudTSsT+/btrrudL9aussDK2st5/bOut3uRcaWzaUnpilKbvq6busmHqZq1qmnIw8+6ro0ulZOSKx1af0ainfAq5KNk5GmVjEQL/IfXsZ3Non8dz5Mnld7kSd1/PdWleKe6v12YuCgXJu+XkcuPy8jnOJeR86J/k96iP9UtmlQ31BLd/kx1szrVo4VUD4Io0WM7SvWQld4diftkjsT/B9CKiVS1viXJ4muSLD4lCbRiAloxAa2YgFZMQCsmoBUT0IoJaMUEtGICWjEBrZiAVkxAKyagFRPQigloxQS0YgJaMQGtmIBWTEArJqAVE4lq/QCduMfJ0F3wLgAAAABJRU5ErkJggg=="
+            alt="INDIA Image"
+          />
+          <!-- #endregion -->
+        </td>
+        <td>2,250,990</td>
+      </tr>
+      <tr>
+        <td>United Kingdom</td>
+        <td>
+          <!-- #region UK Image -->
+          <img src="data:image/png;base64,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" alt="UK Image" />
+          <!-- #endregion -->
+        </td>
+        <td>2,649,890</td>
+      </tr>
+    </table>
+  </body>
+</html>
