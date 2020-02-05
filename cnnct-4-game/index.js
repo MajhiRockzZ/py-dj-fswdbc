@@ -1,4 +1,4 @@
-var player1 = prompt("Player One: Enter Your Name, you will be Blue");
+var player1 = prompt("Player One: Enter Your Name , you will be Blue");
 var player1Color = "rgb(86, 151, 255)";
 
 var player2 = prompt("Player Two: Enter Your Name, you will be Red");
@@ -8,7 +8,7 @@ var game_on = true;
 var table = $("table tr");
 
 function reportWin(rowNum, colNum) {
-  console.log("You won starting at this row, col");
+  console.log("You won starting at this row,col");
   console.log(rowNum);
   console.log(colNum);
 }
@@ -35,7 +35,7 @@ function checkBottom(colIndex) {
   var colorReport = returnColor(5, colIndex);
   for (var row = 5; row > -1; row--) {
     colorReport = returnColor(row, colIndex);
-    if (colorReport === "rgb(128, 128, 128") {
+    if (colorReport === "rgb(128, 128, 128)") {
       return row;
     }
   }
@@ -127,3 +127,43 @@ function diagonalWinCheck() {
     }
   }
 }
+
+var currentPlayer = 1;
+var currentName = player1;
+var currentColor = player1Color;
+
+$("h3").text(
+  player1 + ": it is your turn, please pick a column to drop your blue chip."
+);
+
+$(".board button").on("click", function() {
+  var col = $(this)
+    .closest("td")
+    .index();
+
+  var bottomAvail = checkBottom(col);
+
+  changeColor(bottomAvail, col, currentColor);
+
+  if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
+    gameEnd(currentName);
+  }
+
+  currentPlayer = currentPlayer * -1;
+
+  if (currentPlayer === 1) {
+    currentName = player1;
+    $("h3").text(
+      currentName +
+        ": it is your turn, please pick a column to drop your blue chip."
+    );
+    currentColor = player1Color;
+  } else {
+    currentName = player2;
+    $("h3").text(
+      currentName +
+        ": it is your turn, please pick a column to drop your red chip."
+    );
+    currentColor = player2Color;
+  }
+});
