@@ -41,3 +41,35 @@ seq = [1, 2, 3, 4, 5, 6]
 
 for item in seq:
     print(item)
+
+d = {"Sam": 1, "Frank": 2, "Dan": 3}
+
+for item in d:
+    print(item)
+    print(d[item])
+
+mypairs = [(1, 2), (3, 4), (5, 6)]
+
+for tup1, tup2 in mypairs:
+    print(tup1)
+    print(tup2)
+
+# While Loop
+i = 1
+
+while i < 5:
+    print("i is: {}".format(i))
+    i = i + 1
+
+for item in range(10):
+    print(item)
+
+x = [1, 2, 3, 4]
+
+out = []
+for num in x:
+    out.append(num ** 2)
+print(out)
+
+out = [num ** 2 for num in x]
+print(out)
