@@ -90,10 +90,13 @@ class Player:
 
     def remove_war_cards(self):
         war_cards = []
-        for x in range(3):
-            # war_cards.append(self.hand.cards.pop())
-            war_cards.append(self.hand.remove_card())
-        return war_cards
+        if len(self.hand.cards) < 3:
+            return self.hand.cards
+        else:
+            for x in range(3):
+                # war_cards.append(self.hand.cards.pop())
+                war_cards.append(self.hand.remove_card())
+            return war_cards
 
     def still_has_cards(self):
         """ Return True if player still has cards left """
@@ -104,5 +107,60 @@ class Player:
 #### GAME PLAY #######
 ######################
 print("Welcome to War, let's begin...")
+
+# Create new deck and split it in half
+d = Deck()
+d.shuffle()
+half1, half2 = d.split_in_half()
+
+# create both players!
+comp = Player("computer", Hand(half1))
+
+name = input("what is your name?")
+user = Player(name, Hand(half2))
+
+total_rounds = 0
+war_count = 0
+
+while user.still_has_cards() and comp.still_has_cards():
+    total_rounds += 1
+    print("Time for a new round!")
+    print("here are the current standing")
+    print(user.name+"has the count: "+str(len(user.hand.cards)))
+    print(comp.name + "has the count: " + str(len(comp.hand.cards)))
+    print("play a card")
+    print("\n")
+
+    table_cards = []
+
+    c_card = comp.play_card()
+    p_card = user.play_card()
+
+    table_cards.append(c_card)
+    table_cards.append(p_card)
+
+    if c_card[1] == p_card[1]:
+        war_count += 1
+
+        print("war!")
+
+        table_cards.extend(user.remove_war_cards())
+        table_cards.extend(comp.remove_war_cards())
+
+        if RANKS.index(c_card[1]) < RANKS.index(p_card[1]):
+            user.hand.add(table_cards)
+        else:
+            comp.hand.add(table_cards)
+
+    else:
+        if RANKS.index(c_card[1]) < RANKS.index(p_card[1]):
+            user.hand.add(table_cards)
+        else:
+            comp.hand.add(table_cards)
+
+print("game over, number of rounds:" + str(total_rounds))
+print("a war happened " + str(war_count) + " times")
+print("Does the computer still have cards? ")
+print(str(comp.still_has_cards()))
 
 # Use the 3 classes along with some logic to play a game of war!
